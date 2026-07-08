@@ -1,8 +1,11 @@
 import Button from "../../../components/common/Button";
 import FloatingCard from "../../../components/common/FloatingCard";
+import { Link } from "react-router-dom";
+
+
 function Hero() {
   return (
-    <section className="min-h-screen bg-slate-50">
+    <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -36,17 +39,17 @@ function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-5 mt-10">
 
+            <Link to="/Register">
               <Button>
-
                 Get Started
-
               </Button>
+            </Link>
 
-              <Button className="bg-white text-slate-900 border border-slate-300 hover:bg-slate-100">
-
+              <a href="#features">
+              <Button className="!bg-white !text-slate-900 border border-slate-300 hover:!bg-slate-100">
                 Explore Features
-
               </Button>
+              </a>
 
             </div>
 

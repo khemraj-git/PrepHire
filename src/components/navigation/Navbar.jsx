@@ -1,33 +1,61 @@
 import { FaUserCircle } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+
 import Button from "../common/Button";
+import Container from "../common/Container";
+import navLinks from "../../constants/navLinks";
+
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
 
         <div className="flex justify-between items-center h-20">
 
           {/* Logo */}
 
-          <h1 className="text-2xl font-bold text-blue-600 cursor-pointer">
+          <NavLink
+            to="/"
+            className="text-2xl font-bold text-blue-600"
+          >
             PrepHire
-          </h1>
+          </NavLink>
 
           {/* Navigation */}
 
           <div className="hidden md:flex items-center gap-10 text-slate-700 font-medium">
 
-            <a href="#">Home</a>
 
-            <a href="#">Features</a>
+            {navLinks.map((link) => {
+              if (link.type === "route") {
+                return (
+                  <NavLink
+                    key={link.label}
+                    to={link.path}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-blue-600 font-semibold"
+                        : "hover:text-blue-600 transition-colors"
+                    }
+                  >
+                    {link.label}
+                  </NavLink>
+                );
+              }
 
-            <a href="#">Companies</a>
-
-            <a href="#">Mock Interview</a>
-
-            <a href="#">Dashboard</a>
+              return (
+                <a
+                  key={link.label}
+                  href={`#${link.id}`}
+                  className="hover:text-blue-600 transition-colors"
+                >
+                  {link.label}
+                </a>
+              );
+            })}
 
           </div>
 
@@ -40,17 +68,16 @@ function Navbar() {
               className="text-slate-600 cursor-pointer"
             />
 
+          <Link to="/login">
             <Button>
-
               Login
-
             </Button>
-
+          </Link>
           </div>
 
         </div>
 
-      </div>
+      </Container>
 
     </nav>
   );
