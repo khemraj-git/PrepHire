@@ -1,0 +1,33 @@
+function Button({
+  children,
+  type = "button",
+  onClick,
+  className = "",
+}) {
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      className={`
+        px-6
+        py-3
+        rounded-xl
+        bg-blue-600
+        text-white
+        font-semibold
+        transition-all
+        duration-300
+        hover:bg-blue-700
+        hover:scale-[1.02]
+        active:scale-[0.98]
+        shadow-md
+        cursor-pointer
+        ${className}
+      `}
+    >
+      {children}
+    </button>
+  );
+}
+
+export default Button;
