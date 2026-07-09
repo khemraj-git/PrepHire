@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 import AuthLayout from "./components/AuthLayout";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -16,6 +18,11 @@ const Login = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+     toast.success("Login Successful!");
+
+    setTimeout(() => {
+        navigate("/dashboard");
+    }, 1000);
   };
 
   return (
