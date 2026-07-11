@@ -11,7 +11,7 @@ const pageDetails = {
     description:
       "Browse and practice curated interview questions.",
   },
-  "/dashboard/coding": {
+  "/dashboard/coding-practice/two-sum": {
     title: "Coding Practice",
     description:
       "Solve coding problems and improve your problem-solving skills.",

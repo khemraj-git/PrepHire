@@ -21,7 +21,7 @@ const dashboardLinks = [
   },
   {
     name: "Coding Practice",
-    path: "/dashboard/coding",
+    path: "/dashboard/coding-practice/two-sum",
     icon: FiCode,
   },
   {
