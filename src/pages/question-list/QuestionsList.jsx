@@ -1,8 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { allQuestions } from "../../data/questionBank";
 
-import QuestionListItem from "../components/questions/QuestionListItem";
-
 function QuestionsList() {
   const { category } = useParams();
 
@@ -11,45 +9,59 @@ function QuestionsList() {
       question.category.toLowerCase().replace(/\s+/g, "-") === category
   );
 
-  const pageTitle = category
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-
   return (
-    <div className="space-y-8 p-6">
-      <div>
-        <Link
-          to="/dashboard/question-bank"
-          className="text-sm font-medium text-blue-600 hover:text-blue-700"
-        >
-          ← Back to Question Bank
-        </Link>
+ <div className="space-y-8 p-6">
 
-        <h1 className="mt-4 text-3xl font-bold text-slate-900">
-          {pageTitle} Interview Questions
-        </h1>
+    <div>
+      <Link
+        to="/dashboard/question-bank"
+        className="font-medium text-blue-600 hover:text-blue-700"
+      >
+        ← Back to Question Bank
+      </Link>
 
-        <p className="mt-2 text-slate-500">
-          Browse all {pageTitle} interview questions.
-        </p>
-      </div>
+      <h1 className="mt-4 text-4xl font-bold text-slate-900 capitalize">
+        {category.replace("-", " ")} Interview Questions
+      </h1>
 
-      <div className="space-y-5">
-        {questions.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center text-slate-500">
-            No questions available.
+      <p className="mt-2 text-slate-500">
+        Practice the most frequently asked interview questions.
+      </p>
+    </div>  
+<div className="mt-8 space-y-5">
+  {questions.map((question) => (
+    <div
+      key={question.id}
+      className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-300 hover:shadow-md"
+    >
+      <div className="flex items-start justify-between">
+        <div>
+          <h2 className="text-xl font-semibold text-slate-900">
+            {question.title}
+          </h2>
+
+          <p className="mt-2 text-slate-600">
+            {question.shortDescription}
+          </p>
+
+          <div className="mt-4 flex gap-6 text-sm text-slate-500">
+            <span>📚 {question.topic}</span>
+            <span>⏱ {question.time}</span>
+            <span>⭐ {question.difficulty}</span>
           </div>
-        ) : (
-          questions.map((question) => (
-            <QuestionListItem
-              key={question.id}
-              question={question}
-            />
-          ))
-        )}
+        </div>
+
+        <Link
+          to={`/dashboard/question-bank/${category}/${question.slug}`}
+          className="rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white transition hover:bg-blue-700"
+        >
+          Read Details
+        </Link>
       </div>
     </div>
+  ))}
+</div>
+</div>
   );
 }
 

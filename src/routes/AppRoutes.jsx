@@ -39,12 +39,12 @@ function AppRoutes() {
         />
 
         <Route
-          path="question-bank/:category/:questionId"
+          path="question-bank/:category/:slug"
           element={<QuestionDetails />}
         />
 
         <Route
-          path="coding-practice/:questionId"
+          path="coding-practice/:slug"
           element={<CodingPractice />}
         />
       </Route>
