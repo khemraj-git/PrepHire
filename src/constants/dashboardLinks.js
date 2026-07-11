@@ -16,7 +16,7 @@ const dashboardLinks = [
   },
   {
     name: "Question Bank",
-    path: "/dashboard/questions",
+    path: "/dashboard/question-bank",
     icon: FiBookOpen,
   },
   {

@@ -9,9 +9,10 @@ function Button({
       type={type}
       onClick={onClick}
       className={`
-        px-6
-        py-3
-        rounded-xl
+        
+        px-6  //horiontal padding
+        py-3  //vertical padding
+        rounded-xl  //button rounded
         bg-blue-600
         text-white
         font-semibold

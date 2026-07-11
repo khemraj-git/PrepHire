@@ -1,15 +1,58 @@
 import { FiBell, FiSearch } from "react-icons/fi";
+import { useLocation } from "react-router-dom";
+
+const pageDetails = {
+  "/dashboard": {
+    title: "Welcome Back 👋",
+    description: "Continue preparing for your dream job.",
+  },
+  "/dashboard/question-bank": {
+    title: "Question Bank",
+    description:
+      "Browse and practice curated interview questions.",
+  },
+  "/dashboard/coding": {
+    title: "Coding Practice",
+    description:
+      "Solve coding problems and improve your problem-solving skills.",
+  },
+  "/dashboard/mock-interview": {
+    title: "Mock Interview",
+    description:
+      "Practice realistic interview scenarios with confidence.",
+  },
+  "/dashboard/resume": {
+    title: "Resume Review",
+    description:
+      "Improve your resume with actionable suggestions.",
+  },
+  "/dashboard/analytics": {
+    title: "Analytics",
+    description:
+      "Track your learning progress and performance.",
+  },
+  "/dashboard/profile": {
+    title: "Profile",
+    description:
+      "Manage your account and personal information.",
+  },
+};
 
 function Topbar() {
+  const { pathname } = useLocation();
+
+  const currentPage =
+    pageDetails[pathname] || pageDetails["/dashboard"];
+
   return (
     <header className="sticky top-0 z-20 flex h-20 items-center justify-between border-b border-slate-200 bg-white px-6">
       <div>
         <h2 className="text-2xl font-bold text-slate-900">
-          Welcome Back 👋
+          {currentPage.title}
         </h2>
 
         <p className="mt-1 text-sm text-slate-500">
-          Continue preparing for your dream job.
+          {currentPage.description}
         </p>
       </div>
 
