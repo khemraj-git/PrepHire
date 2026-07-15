@@ -15,20 +15,22 @@ import ActionButtons from "./components/ActionButtons";
 import TestCases from "./components/TestCases";
 import OutputConsole from "./components/OutputConsole";
 
+import useCodingWorkspace from "../../hooks/useCodingWorkspace";
+
 
 function CodingPractice() {
     const { slug } = useParams();
 
 
-    const [selectedLanguage, setSelectedLanguage] = useState("Java");
+    // const [selectedLanguage, setSelectedLanguage] = useState("Java");
 
-    const [code, setCode] = useState(starterCode.Java); 
+    // const [code, setCode] = useState(starterCode.Java); 
     
-    const [output, setOutput] = useState("");
+    // const [output, setOutput] = useState("");
 
-    const [isRunning, setIsRunning] = useState(false);
+    // const [isRunning, setIsRunning] = useState(false);
 
-    const [activeTab, setActiveTab] = useState("testcases");
+    // const [activeTab, setActiveTab] = useState("testcases");
 
     const question = useMemo(
         () => allQuestions.find((item) => item.slug === slug),
@@ -39,39 +41,58 @@ function CodingPractice() {
         return <Navigate to="/dashboard/question-bank" replace />;
     }
 
-    const handleReset = () => {
-    setCode(starterCode[selectedLanguage]);
-    setOutput("");
-    };
+    const {
+      languages,
+      starterCode,
 
-    const handleRun = () => {
-    setIsRunning(true);
+      selectedLanguage,
+      code,
+      output,
+      isRunning,
+      activeTab,
 
-    setOutput("Running your solution...");
+      setCode,
+      setActiveTab,
 
-    setTimeout(() => {
-        setOutput(
-        `Execution Successful ✅\n\nExpected Output:\n${question.example.output}`
-        );
+      handleLanguageChange,
+      handleReset,
+      handleRun,
+      handleSubmit,
+    } = useCodingWorkspace(question);
 
-        setIsRunning(false);
-    }, 1000);
-    };
+    // const handleReset = () => {
+    // setCode(starterCode[selectedLanguage]);
+    // setOutput("");
+    // };
 
-    const handleSubmit = () => {
-    setOutput(
-        `Accepted ✅
+    // const handleRun = () => {
+    // setIsRunning(true);
 
-    Time Taken:
-    ${question.time}
+    // setOutput("Running your solution...");
 
-    Runtime:
-    24 ms
+    // setTimeout(() => {
+    //     setOutput(
+    //     `Execution Successful ✅\n\nExpected Output:\n${question.example.output}`
+    //     );
 
-    Memory:
-    41.2 MB`
-    );
-    };
+    //     setIsRunning(false);
+    // }, 1000);
+    // };
+
+    // const handleSubmit = () => {
+    // setOutput(
+    //     `Accepted ✅
+
+    // Time Taken:
+    // ${question.time}
+
+    // Runtime:
+    // 24 ms
+
+    // Memory:
+    // 41.2 MB`
+    // );
+    // };
 
   return (
     <div className="min-h-[calc(100vh-80px)] p-6">
@@ -202,11 +223,9 @@ function CodingPractice() {
             <div className="flex items-center gap-3">
 
             <LanguageSelector
-            languages={languages}
-            selectedLanguage={selectedLanguage}
-            setSelectedLanguage={setSelectedLanguage}
-            starterCode={starterCode}
-            setCode={setCode}
+              languages={languages}
+              selectedLanguage={selectedLanguage}
+              onLanguageChange={handleLanguageChange}
             />
 
             <Timer />

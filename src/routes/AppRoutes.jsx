@@ -15,6 +15,15 @@ import QuestionList from "../pages/question-list/QuestionsList";
 import QuestionDetails from "../pages/question-details/QuestionDetails";
 import CodingPractice from "../pages/coding-practice/CodingPractice";
 
+import MockInterview from "../pages/mock-interview/MockInterview";
+import SetupForm from "../pages/mock-interview/components/SetupForm";
+import InstructionsCard from "../pages/mock-interview/components/InstructionsCard";
+import QuestionPanel from "../pages/mock-interview/components/QuestionPanel";
+import FeedbackCard from "../pages/mock-interview/components/FeedbackCard";
+// import InstructionsCard from "../pages/mock-interview/components/InstructionsCard";
+
+
+
 function AppRoutes() {
   return (
     <Routes>
@@ -46,6 +55,31 @@ function AppRoutes() {
         <Route
           path="coding-practice/:slug"
           element={<CodingPractice />}
+        />
+
+        <Route
+          path="mock-interview"
+          element={<MockInterview />}
+        />
+
+        <Route
+            path="mock-interview/setup"
+            element={<SetupForm />}
+        />
+
+        <Route
+            path="mock-interview/instructions"
+            element={<InstructionsCard />}
+        />
+
+        <Route
+            path="mock-interview/session"
+            element={<QuestionPanel />}
+        />
+
+        <Route
+            path="mock-interview/feedback"
+            element={<FeedbackCard />}
         />
       </Route>
     </Routes>
