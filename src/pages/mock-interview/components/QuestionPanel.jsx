@@ -7,19 +7,28 @@ import {
 
 import useMockInterview from "../../../hooks/useMockInterview";
 import ProgressSidebar from "./ProgressSidebar";
+import { useState } from "react";
+import FinishInterviewModal from "./FinishInterviewModal";
+import { useLocation } from "react-router-dom";
+
 
 
 const QuestionPanel = () => {
-  const {
+ const {
   answers,
   question,
   currentQuestion,
+
+  answeredCount,
+  progress,
 
   updateAnswer,
   nextQuestion,
   previousQuestion,
   goToQuestion,
 } = useMockInterview();
+
+const [showFinishModal, setShowFinishModal] = useState(false);
 
   return (
     <div className="grid gap-6 lg:grid-cols-[2fr_350px]">
@@ -69,20 +78,20 @@ const QuestionPanel = () => {
 
             <button
               disabled={currentQuestion === 0}
-              onClick={() =>
-                onClick={previousQuestion}
-              }
+              onClick={previousQuestion}
               className="flex items-center gap-2 rounded-xl border border-gray-200 px-5 py-3 font-semibold transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
             >
               <FiArrowLeft />
-
               Previous
             </button>
 
             {currentQuestion === answers.length - 1 ? (
-              <button className="rounded-xl bg-green-600 px-6 py-3 font-semibold text-white transition hover:bg-green-700">
-                Finish Interview
-              </button>
+            <button
+              onClick={() => setShowFinishModal(true)}
+              className="rounded-xl bg-green-600 px-6 py-3 font-semibold text-white transition hover:bg-green-700"
+            >
+              Finish Interview
+            </button>
             ) : (
               <button
                 onClick={nextQuestion}
@@ -104,9 +113,18 @@ const QuestionPanel = () => {
       {/* Right Sidebar */}
 
         <ProgressSidebar
-        answers={answers}
-        currentQuestion={currentQuestion}
-        goToQuestion={goToQuestion}
+          answers={answers}
+          currentQuestion={currentQuestion}
+          answeredCount={answeredCount}
+          progress={progress}
+          goToQuestion={goToQuestion}
+        />
+
+        <FinishInterviewModal
+          isOpen={showFinishModal}
+          answeredCount={answeredCount}
+          totalQuestions={answers.length}
+          onClose={() => setShowFinishModal(false)}
         />
 
     </div>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { FiArrowRight, FiCheckCircle } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 const roles = [
   "Frontend Developer",

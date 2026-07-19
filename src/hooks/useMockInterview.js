@@ -51,14 +51,17 @@ const useMockInterview = () => {
   };
 
   const previousQuestion = () => {
-    if (currentQuestion <= 0) return;
+    if (currentQuestion === 0) return;
 
     const previousIndex = currentQuestion - 1;
 
     setAnswers((prev) =>
       prev.map((item, index) =>
         index === previousIndex
-          ? { ...item, visited: true }
+          ? {
+              ...item,
+              visited: true,
+            }
           : item
       )
     );

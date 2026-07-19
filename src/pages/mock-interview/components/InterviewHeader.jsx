@@ -1,4 +1,5 @@
 import { FiArrowRight, FiPlayCircle } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const InterviewHeader = () => {
   return (
@@ -21,11 +22,13 @@ const InterviewHeader = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <button className="flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-blue-700 transition hover:shadow-xl">
+            <Link
+              to="/dashboard/mock-interview/setup"
+              className="flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-blue-700 transition hover:shadow-xl"
+            >
               <FiPlayCircle size={20} />
               Start Interview
-            </button>
-
+            </Link>
             <button className="flex items-center gap-2 rounded-xl border border-white/30 px-6 py-3 font-semibold transition hover:bg-white/10">
               View History
               <FiArrowRight />

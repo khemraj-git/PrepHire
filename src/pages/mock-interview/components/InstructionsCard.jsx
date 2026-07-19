@@ -8,6 +8,7 @@ import {
   FiVideo,
 } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const instructions = [
   "Ensure you are in a quiet environment.",
