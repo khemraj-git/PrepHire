@@ -22,7 +22,7 @@ import QuestionPanel from "../pages/mock-interview/components/QuestionPanel";
 import FeedbackCard from "../pages/mock-interview/components/FeedbackCard";
 // import InstructionsCard from "../pages/mock-interview/components/InstructionsCard";
 
-
+import InterviewHistory from "../pages/mock-interview/InterviewHistory";
 
 function AppRoutes() {
   return (
@@ -80,6 +80,11 @@ function AppRoutes() {
         <Route
             path="mock-interview/feedback"
             element={<FeedbackCard />}
+        />
+
+        <Route
+          path="mock-interview/history"
+          element={<InterviewHistory />}
         />
       </Route>
     </Routes>

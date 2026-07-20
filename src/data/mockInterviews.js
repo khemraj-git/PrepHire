@@ -104,4 +104,16 @@ export const recentInterviews = [
   },
 ];
 
+export const continueInterview = {
+  role: "Frontend Developer",
+  difficulty: "Intermediate",
+  duration: "30 Minutes",
+  language: "JavaScript",
+
+  questions: 10,
+
+  currentQuestion: 4,
+  totalQuestions: 10,
+};
+
 export const recommendedInterviews = interviewCategories.slice(0, 3);

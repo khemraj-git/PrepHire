@@ -10,7 +10,7 @@ import ProgressSidebar from "./ProgressSidebar";
 import { useState } from "react";
 import FinishInterviewModal from "./FinishInterviewModal";
 import { useLocation } from "react-router-dom";
-
+import InterviewTimer from "./InterviewTimer";
 
 
 const QuestionPanel = () => {
@@ -29,6 +29,7 @@ const QuestionPanel = () => {
 } = useMockInterview();
 
 const [showFinishModal, setShowFinishModal] = useState(false);
+const { state } = useLocation();
 
   return (
     <div className="grid gap-6 lg:grid-cols-[2fr_350px]">
@@ -40,19 +41,37 @@ const [showFinishModal, setShowFinishModal] = useState(false);
         <div className="border-b border-gray-100 p-6">
           <div className="flex items-center justify-between">
 
-            <div>
-              <p className="text-sm text-gray-500">
-                Question {currentQuestion + 1} of {answers.length}
-              </p>
+          <div>
+            <p className="text-sm text-gray-500">
+              Question {currentQuestion + 1} of {answers.length}
+            </p>
 
-              <h2 className="mt-2 text-2xl font-bold">
-                {question.category}
-              </h2>
+            <h2 className="mt-2 text-2xl font-bold">
+              {question.category}
+            </h2>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+
+              <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
+                💼 {state?.role}
+              </span>
+
+              <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700">
+                📈 {state?.difficulty}
+              </span>
+
+              <span className="rounded-full bg-purple-100 px-3 py-1 text-xs font-medium text-purple-700">
+                💻 {state?.language}
+              </span>
+
+              <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
+                ❓ {state?.questions} Questions
+              </span>
+
             </div>
+          </div>
 
-            <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-700">
-              30:00
-            </span>
+        
 
           </div>
         </div>
@@ -112,13 +131,14 @@ const [showFinishModal, setShowFinishModal] = useState(false);
 
       {/* Right Sidebar */}
 
-        <ProgressSidebar
-          answers={answers}
-          currentQuestion={currentQuestion}
-          answeredCount={answeredCount}
-          progress={progress}
-          goToQuestion={goToQuestion}
-        />
+          <ProgressSidebar
+            answers={answers}
+            currentQuestion={currentQuestion}
+            answeredCount={answeredCount}
+            progress={progress}
+            goToQuestion={goToQuestion}
+            duration={state?.duration}
+          />
 
         <FinishInterviewModal
           isOpen={showFinishModal}

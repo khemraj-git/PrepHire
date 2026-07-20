@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FiArrowRight, FiCheckCircle } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 
 const roles = [
@@ -23,6 +22,7 @@ const questionCounts = [5, 10, 15, 20];
 const languages = ["Java", "C++", "Python", "JavaScript"];
 
 const SetupForm = () => {
+
   const [formData, setFormData] = useState({
     role: roles[0],
     difficulty: difficulties[1],
@@ -167,14 +167,14 @@ const SetupForm = () => {
               <SummaryItem title="Language" value={formData.language} />
             </div>
 
-            <Link
-              to="/dashboard/mock-interview/instructions"
-              className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white transition hover:bg-blue-700"
-            >
-              Start Interview
-
-              <FiArrowRight />
-            </Link>
+          <Link
+            to="/dashboard/mock-interview/instructions"
+            state={formData}
+            className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white transition hover:bg-blue-700"
+          >
+            Start Interview
+            <FiArrowRight />
+          </Link>
           </div>
 
           <div className="rounded-3xl border border-green-200 bg-green-50 p-6">

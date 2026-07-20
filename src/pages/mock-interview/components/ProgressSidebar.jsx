@@ -6,11 +6,11 @@ import InterviewTimer from "./InterviewTimer";
 const ProgressSidebar = ({
   answers,
   currentQuestion,
-  answeredCount,
+ answeredCount,
   progress,
   goToQuestion,
+  duration,
 }) => {
-  
 
   return (
     <aside className="space-y-6">
@@ -58,7 +58,7 @@ const ProgressSidebar = ({
             
 
       {/* Timer */}
-      <InterviewTimer />
+      <InterviewTimer duration={duration} />
 
       
 

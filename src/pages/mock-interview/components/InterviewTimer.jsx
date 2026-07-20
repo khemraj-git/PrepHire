@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FiClock } from "react-icons/fi";
 
-const InterviewTimer = () => {
+const InterviewTimer = ({ duration = "30 Minutes" }) => {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
@@ -17,21 +17,29 @@ const InterviewTimer = () => {
   const secs = String(seconds % 60).padStart(2, "0");
 
   return (
-    <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-      <div className="flex items-center gap-3">
-        <div className="rounded-xl bg-blue-100 p-3">
-          <FiClock className="text-xl text-blue-600" />
-        </div>
+    <div className="flex items-center gap-3 rounded-full bg-blue-100 px-4 py-2">
+      <FiClock className="text-lg text-blue-700" />
 
-        <div>
-          <p className="text-sm text-gray-500">
-            Interview Time
-          </p>
+      <div>
+        <p className="text-[10px] font-medium uppercase tracking-wide text-blue-600">
+          Elapsed
+        </p>
 
-          <h2 className="mt-1 text-2xl font-bold tracking-wider">
-            {hours}:{minutes}:{secs}
-          </h2>
-        </div>
+        <p className="text-sm font-bold text-blue-700">
+          {hours}:{minutes}:{secs}
+        </p>
+      </div>
+
+      <div className="h-8 w-px bg-blue-300" />
+
+      <div>
+        <p className="text-[10px] font-medium uppercase tracking-wide text-blue-600">
+          Limit
+        </p>
+
+        <p className="text-sm font-bold text-blue-700">
+          {duration}
+        </p>
       </div>
     </div>
   );

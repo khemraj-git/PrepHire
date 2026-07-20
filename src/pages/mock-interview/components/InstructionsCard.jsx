@@ -7,7 +7,6 @@ import {
   FiMonitor,
   FiVideo,
 } from "react-icons/fi";
-import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const instructions = [
@@ -43,6 +42,10 @@ const checks = [
 ];
 
 const InstructionsCard = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const interviewConfig = location.state;
   return (
     <div className="mx-auto max-w-5xl space-y-8">
       {/* Header */}
@@ -115,14 +118,17 @@ const InstructionsCard = () => {
         </div>
 
         <div className="mt-10 flex justify-end">
-          <Link
-            to="/dashboard/mock-interview/session"
-            className="flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
-          >
-            Start Interview
-
-            <FiArrowRight />
-          </Link>
+        <button
+          onClick={() =>
+            navigate("/dashboard/mock-interview/session", {
+              state: interviewConfig,
+            })
+          }
+          className="flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
+        >
+          Start Interview
+          <FiArrowRight />
+        </button>
         </div>
       </div>
     </div>

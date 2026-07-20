@@ -1,27 +1,18 @@
-import { FiArrowRight, FiCheckCircle, FiClock } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { recentInterviews } from "../../../data/mockInterviews";
+import { FiArrowRight, FiClock, FiCheckCircle } from "react-icons/fi";
+import { recentInterviews } from "../../data/mockInterviews";
 
-const RecentInterviews = () => {
+const InterviewHistory = () => {
   return (
-    <section className="space-y-5">
-      <div className="flex items-center justify-between">
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900">
-            Recent Interviews
-          </h2>
+    <div className="space-y-8">
+      <div>
+        <h1 className="text-3xl font-bold text-gray-900">
+          Interview History
+        </h1>
 
-          <p className="mt-1 text-gray-500">
-            Review your latest interview attempts.
-          </p>
-        </div>
-
-        <Link
-          to="/dashboard/mock-interview/history"
-          className="text-sm font-semibold text-blue-600 transition hover:text-blue-700"
-        >
-          View All
-        </Link>
+        <p className="mt-2 text-gray-500">
+          Review all your previous mock interviews and reports.
+        </p>
       </div>
 
       <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
@@ -40,7 +31,7 @@ const RecentInterviews = () => {
             {recentInterviews.map((item) => (
               <tr
                 key={item.id}
-                className="border-t border-gray-100 transition hover:bg-blue-50/40"
+                className="border-t border-gray-100 hover:bg-blue-50/40"
               >
                 <td className="px-6 py-5">
                   <div className="flex items-center gap-3">
@@ -49,10 +40,7 @@ const RecentInterviews = () => {
                     </div>
 
                     <div>
-                      <p className="font-semibold text-gray-900">
-                        {item.role}
-                      </p>
-
+                      <p className="font-semibold">{item.role}</p>
                       <p className="text-sm text-gray-500">
                         Mock Interview
                       </p>
@@ -67,13 +55,13 @@ const RecentInterviews = () => {
                 </td>
 
                 <td className="px-6 py-5">
-                  <div className="flex items-center gap-2 text-gray-600">
+                  <div className="flex items-center gap-2">
                     <FiClock size={15} />
                     {item.duration}
                   </div>
                 </td>
 
-                <td className="px-6 py-5 text-gray-500">
+                <td className="px-6 py-5">
                   {item.date}
                 </td>
 
@@ -81,7 +69,7 @@ const RecentInterviews = () => {
                   <Link
                     to="/dashboard/mock-interview/feedback"
                     state={item}
-                    className="flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-700"
+                    className="flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700"
                   >
                     View Report
                     <FiArrowRight size={15} />
@@ -92,8 +80,8 @@ const RecentInterviews = () => {
           </tbody>
         </table>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default RecentInterviews;
+export default InterviewHistory;
