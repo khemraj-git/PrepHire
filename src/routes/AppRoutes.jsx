@@ -21,8 +21,13 @@ import InstructionsCard from "../pages/mock-interview/components/InstructionsCar
 import QuestionPanel from "../pages/mock-interview/components/QuestionPanel";
 import FeedbackCard from "../pages/mock-interview/components/FeedbackCard";
 // import InstructionsCard from "../pages/mock-interview/components/InstructionsCard";
-
 import InterviewHistory from "../pages/mock-interview/InterviewHistory";
+
+import ResumeReview from "../pages/resume-review/ResumeReview";
+import ResumeAnalysis from "../pages/resume-review/ResumeAnalysis";
+
+
+
 
 function AppRoutes() {
   return (
@@ -86,6 +91,17 @@ function AppRoutes() {
           path="mock-interview/history"
           element={<InterviewHistory />}
         />
+
+        <Route 
+          path="resume-review" 
+          element={<ResumeReview />} 
+        />
+        
+        <Route 
+          path="resume-review/analysis" 
+          element={<ResumeAnalysis />} 
+        />
+
       </Route>
     </Routes>
   );
