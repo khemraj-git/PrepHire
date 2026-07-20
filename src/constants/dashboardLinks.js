@@ -31,7 +31,7 @@ const dashboardLinks = [
   },
   {
     name: "Resume Review",
-    path: "/dashboard/resume",
+    path: "/dashboard/resume-review",
     icon: FiFileText,
   },
   {

@@ -26,7 +26,11 @@ import InterviewHistory from "../pages/mock-interview/InterviewHistory";
 import ResumeReview from "../pages/resume-review/ResumeReview";
 import ResumeAnalysis from "../pages/resume-review/ResumeAnalysis";
 
+import Analytics from "../pages/analytics/Analytics";
 
+import Profile from "../pages/profile/Profile";
+
+import NotFound from "../pages/not-found/NotFound";
 
 
 function AppRoutes() {
@@ -96,10 +100,25 @@ function AppRoutes() {
           path="resume-review" 
           element={<ResumeReview />} 
         />
-        
+
         <Route 
           path="resume-review/analysis" 
           element={<ResumeAnalysis />} 
+        />
+
+        <Route
+          path="analytics"
+          element={<Analytics />}
+        />
+
+        <Route
+            path="profile"
+            element={<Profile />}
+        />
+
+        <Route 
+            path="*" 
+            element={<NotFound />} 
         />
 
       </Route>

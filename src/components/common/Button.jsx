@@ -3,6 +3,8 @@ function Button({
   type = "button",
   onClick,
   className = "",
+    disabled = false,
+  ...props
 }) {
   return (
     <button
@@ -23,8 +25,11 @@ function Button({
         active:scale-[0.98]
         shadow-md
         cursor-pointer
+        disabled:cursor-not-allowed
+        disabled:opacity-50
         ${className}
       `}
+      {...props}
     >
       {children}
     </button>
