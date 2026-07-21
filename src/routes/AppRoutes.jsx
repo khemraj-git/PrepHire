@@ -32,6 +32,9 @@ import Profile from "../pages/profile/Profile";
 
 import NotFound from "../pages/not-found/NotFound";
 
+import ProtectedRoute from "./ProtectedRoute";
+import PublicRoute from "./PublicRoute";
+
 
 function AppRoutes() {
   return (
@@ -42,12 +45,15 @@ function AppRoutes() {
       </Route>
 
       {/* Authentication */}
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      <Route element={<PublicRoute />}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Route>
 
       {/* Dashboard */}
-      <Route path="/dashboard" element={<DashboardLayout />}>
-        <Route index element={<Dashboard />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<Dashboard />} />
 
         <Route path="question-bank" element={<QuestionBank />} />
 
@@ -115,13 +121,17 @@ function AppRoutes() {
             path="profile"
             element={<Profile />}
         />
+        </Route>
+        </Route>
 
         <Route 
             path="*" 
             element={<NotFound />} 
         />
 
-      </Route>
+        
+
+      
     </Routes>
   );
 }

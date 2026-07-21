@@ -30,40 +30,40 @@ const activities = [
 
 function RecentActivity() {
   return (
-    <Card className="h-full p-6">
+    <Card className="h-full p-5 sm:p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-slate-900">
+        <h2 className="text-lg font-semibold text-slate-900 sm:text-xl">
           Recent Activity
         </h2>
 
-        <p className="mt-1 text-sm text-slate-500">
+        <p className="mt-1 text-xs text-slate-500 sm:text-sm">
           Your latest interview preparation updates.
         </p>
       </div>
 
-      <div className="space-y-5">
+      <div className="space-y-4 sm:space-y-5">
         {activities.map((activity) => {
           const Icon = activity.icon;
 
           return (
             <div
               key={activity.title}
-              className="flex items-start gap-4"
+              className="flex items-start gap-3 sm:gap-4"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
-                <Icon size={18} />
+              <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-600 sm:h-10 sm:w-10">
+                <Icon size={16} />
               </div>
 
               <div className="flex-1">
-                <h3 className="font-medium text-slate-900">
+                <h3 className="text-sm font-medium text-slate-900 sm:text-base">
                   {activity.title}
                 </h3>
 
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-xs text-slate-500 sm:text-sm">
                   {activity.description}
                 </p>
 
-                <span className="mt-2 block text-xs text-slate-400">
+                <span className="mt-1 block text-xs text-slate-400">
                   {activity.time}
                 </span>
               </div>

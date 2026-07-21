@@ -5,20 +5,20 @@ import { Link } from "react-router-dom";
 
 function Hero() {
   return (
-    <section className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
+    <section className="bg-slate-50 py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-20">
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
 
           {/* LEFT SIDE */}
 
-          <div>
+          <div className="text-center lg:text-left">
 
-            <span className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">
+            <span className="inline-block rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-700">
               🚀 Smart Interview Preparation Platform
             </span>
 
-            <h1 className="text-6xl font-bold text-slate-900 mt-8 leading-tight">
+            <h1 className="mt-8 text-4xl font-bold leading-tight text-slate-900 sm:text-5xl lg:text-6xl">
 
               <span className="text-blue-600">Prepare Smarter.</span>
                 <br />
@@ -28,7 +28,7 @@ function Hero() {
 
             </h1>
 
-            <p className="text-slate-600 text-lg lg:text-xl mt-8 leading-8">
+            <p className="mt-8 text-base leading-7 text-slate-600 sm:text-lg lg:text-xl lg:leading-8">
 
               Master technical interviews, coding assessments, 
               and HR rounds with AI-powered mock interviews, 
@@ -37,9 +37,9 @@ function Hero() {
 
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-5 mt-10">
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
 
-            <Link to="/Register">
+            <Link to="/register">
               <Button>
                 Get Started
               </Button>
@@ -52,35 +52,35 @@ function Hero() {
               </a>
 
             </div>
-
-            <div className="flex flex-wrap justify-between mt-12">
+{/* Statistics Section */}
+            <div className="mt-12 grid grid-cols-3 gap-6 text-center">
 
                 <div>
-                    <h3 className="text-2xl font-bold text-slate-900">
+                    <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">
                         10K+
                     </h3>
 
-                    <p className="text-slate-500">
+                    <p className="mt-1 text-sm text-slate-500 sm:text-base">
                         Interview Questions
                     </p>
                 </div>
 
                 <div>
-                    <h3 className="text-2xl font-bold text-slate-900">
+                    <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">
                         50+
                     </h3>
 
-                    <p className="text-slate-500">
+                    <p className="mt-1 text-sm text-slate-500 sm:text-base">
                         Top Companies
                     </p>
                 </div>
 
                 <div>
-                    <h3 className="text-2xl font-bold text-slate-900">
+                    <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">
                         95%
                     </h3>
 
-                    <p className="text-slate-500">
+                    <p className="mt-1 text-sm text-slate-500 sm:text-base">
                         Success Rate
                     </p>
                 </div>
@@ -91,7 +91,7 @@ function Hero() {
 
           {/* RIGHT SIDE */}
 
-            <div className="relative flex justify-center items-center min-h-[550px]">
+            <div className="relative hidden min-h-[550px] items-center justify-center lg:flex">
 
             <div className="absolute top-0 right-12">
 

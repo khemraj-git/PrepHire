@@ -6,13 +6,13 @@ import DailyGoals from "./sections/DailyGoals";
 
 function Dashboard() {
   return (
-    <div className="space-y-8 p-6">
+    <div className="space-y-6 p-4 sm:p-6 lg:space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-slate-900">
+        <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">
           Dashboard
         </h1>
 
-        <p className="mt-2 text-slate-600">
+        <p className="mt-2 max-w-3xl text-sm text-slate-600 sm:text-base">
           Track your interview preparation, monitor your progress, and continue improving your skills.
         </p>
       </div>
@@ -21,7 +21,7 @@ function Dashboard() {
 
       <DailyGoals />
 
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-6 xl:grid-cols-3">
         <div className="lg:col-span-2">
           <ProgressOverview />
         </div>

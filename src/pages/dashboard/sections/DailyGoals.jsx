@@ -33,22 +33,22 @@ function DailyGoals() {
   };
 
   return (
-    <Card className="p-6">
+    <Card className="p-5 sm:p-6">
       {/* Header */}
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h2 className="text-xl font-bold text-slate-900">
+          <h2 className="text-lg font-bold text-slate-900 sm:text-xl">
             🎯 Daily Goals
           </h2>
 
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-xs text-slate-500 sm:text-sm">
             Stay consistent by completing today's interview tasks.
           </p>
         </div>
 
         <button
           disabled={!canCustomizeGoals}
-          className={`flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition ${
+          className={`flex w-full items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition sm:w-auto ${
             canCustomizeGoals
               ? "border-blue-600 text-blue-600 hover:bg-blue-50"
               : "cursor-not-allowed border-slate-200 text-slate-400"
@@ -61,12 +61,12 @@ function DailyGoals() {
 
       {/* Progress */}
       <div className="mt-6">
-        <div className="mb-2 flex items-center justify-between">
-          <span className="font-semibold text-slate-800">
+        <div className="mb-2 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+          <span className="text-sm font-semibold text-slate-800 sm:text-base">
             {percentage}% Completed
           </span>
 
-          <span className="text-sm text-slate-500">
+          <span className="text-xs text-slate-500 sm:text-sm">
             {completedGoals} of {dailyGoals.length} tasks completed
           </span>
         </div>
@@ -78,7 +78,7 @@ function DailyGoals() {
           />
         </div>
 
-        <p className="mt-3 text-sm text-slate-600">
+        <p className="mt-3 text-sm leading-6 text-slate-600">
           {getMotivationMessage()}
         </p>
       </div>

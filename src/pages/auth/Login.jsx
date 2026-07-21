@@ -3,12 +3,13 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
-
+import useAuth from "../../hooks/useAuth";
 import AuthLayout from "./components/AuthLayout";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const {
     register,
@@ -17,13 +18,21 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-     toast.success("Login Successful!");
+  console.log(data);
 
-    setTimeout(() => {
-        navigate("/dashboard");
-    }, 1000);
-  };
+  login({
+    id: 1,
+    name: "Khemraj",
+    email: data.email,
+    role: "user",
+  });
+
+  toast.success("Login Successful!");
+
+  setTimeout(() => {
+    navigate("/dashboard");
+  }, 1000);
+};
 
   return (
     <AuthLayout
@@ -32,7 +41,7 @@ const Login = () => {
     >
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="space-y-5"
+        className="space-y-5 rounded-2xl"
       >
         {/* Email */}
         <div>
@@ -46,7 +55,7 @@ const Login = () => {
             {...register("email", {
               required: "Email is required",
             })}
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-blue-600"
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 sm:text-base"
           />
 
           {errors.email && (
@@ -69,7 +78,7 @@ const Login = () => {
               {...register("password", {
                 required: "Password is required",
               })}
-              className="w-full rounded-xl border border-slate-300 px-4 py-3 pr-12 outline-none transition focus:border-blue-600"
+              className="w-full rounded-xl border border-slate-300 px-4 py-3 pr-12 text-sm outline-none transition focus:border-blue-600 sm:text-base"
             />
 
             <button
@@ -106,13 +115,13 @@ const Login = () => {
         {/* Login Button */}
         <button
           type="submit"
-          className="w-full rounded-xl bg-blue-600 py-3 font-semibold text-white transition hover:bg-blue-700"
+          className="w-full rounded-xl bg-blue-600 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 sm:text-base"
         >
           Login
         </button>
 
         {/* Register */}
-        <p className="text-center text-sm text-slate-600">
+        <p className="text-center text-sm text-slate-600 sm:text-base">
           Don't have an account?{" "}
           <Link
             to="/register"

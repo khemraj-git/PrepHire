@@ -23,32 +23,47 @@ const data = [
 
 function ProgressOverview() {
   return (
-    <Card className="p-6">
+    <Card className="p-5 sm:p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-slate-900">
+        <h2 className="text-lg font-semibold text-slate-900 sm:text-xl">
           Progress Overview
         </h2>
 
-        <p className="mt-1 text-sm text-slate-500">
+        <p className="mt-1 text-xs text-slate-500 sm:text-sm">
           Your weekly interview preparation progress.
         </p>
       </div>
 
-      <div className="h-80">
+      <div className="h-64 sm:h-72 lg:h-80">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>
-            <XAxis dataKey="day" />
+            <XAxis
+              dataKey="day"
+              tick={{ fontSize: 12 }}
+              axisLine={false}
+              tickLine={false}
+            />
 
-            <YAxis />
+            <YAxis
+              tick={{ fontSize: 12 }}
+              axisLine={false}
+              tickLine={false}
+            />
 
-            <Tooltip />
+            <Tooltip
+                contentStyle={{
+                  borderRadius: "12px",
+                  border: "1px solid #E2E8F0",
+                }}
+              />
 
             <Line
               type="monotone"
               dataKey="progress"
               stroke="#2563EB"
               strokeWidth={3}
-              dot={{ r: 5 }}
+              dot={{ r: 4 }}
+              activeDot={{ r: 6 }}
             />
           </LineChart>
         </ResponsiveContainer>

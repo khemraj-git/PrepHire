@@ -45,14 +45,14 @@ const stats = [
 
 function StatsCards() {
   return (
-    <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+    <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
       {stats.map((item) => {
         const Icon = item.icon;
 
         return (
             <Card
             key={item.title}
-            className="p-6 transition-all hover:-translate-y-1 hover:shadow-md"
+            className="p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-md sm:p-6"
             >
             <div className="flex items-start justify-between">
               <div>
@@ -60,7 +60,7 @@ function StatsCards() {
                   {item.title}
                 </p>
 
-                <h3 className="mt-2 text-3xl font-bold text-slate-900">
+                <h3 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
                   {item.value}
                 </h3>
 
@@ -70,9 +70,9 @@ function StatsCards() {
               </div>
 
               <div
-                className={`flex h-12 w-12 items-center justify-center rounded-xl ${item.color}`}
+                className={`flex h-10 w-10 items-center justify-center rounded-xl sm:h-12 sm:w-12 ${item.color}`}
               >
-                <Icon size={22} />
+                <Icon size={20} />
               </div>
             </div>
           </Card>

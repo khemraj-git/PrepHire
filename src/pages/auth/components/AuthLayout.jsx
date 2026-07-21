@@ -47,14 +47,14 @@ const AuthLayout = ({ title, subtitle, children }) => {
         </div>
 
         {/* Right Panel */}
-        <div className="flex items-center justify-center px-6 py-12">
-          <div className="w-full max-w-md rounded-2xl bg-white shadow-lg border border-slate-200 p-8">
+        <div className="flex items-center justify-center px-4 py-8 sm:px-6 sm:py-12">
+          <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-lg sm:p-8">
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-slate-900">
+              <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
                 {title}
               </h2>
 
-              <p className="mt-2 text-slate-500">
+              <p className="mt-2 text-sm text-slate-500 sm:text-base">
                 {subtitle}
               </p>
             </div>
